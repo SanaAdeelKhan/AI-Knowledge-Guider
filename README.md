@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# 🌐 AI Knowledge Guider 🧠🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered 3D learning assistant built for the **RAISE: Qualcomm Track Hackathon**.  
+Designed to provide **voice-interactive, subject-wise guidance** using intelligent agents and real-time 3D avatars.
 
-## Available Scripts
+---
 
+## 💡 Core Features
+
+- 🎙️ **Voice Input & Response** using Web Speech API / Whisper
+- 🧠 **Smart AI Agents** for Science, History, and more
+- 🧍‍♂️ **3D Avatars** powered by Three.js or Ready Player Me
+- ⚡ **Groq + LLaMA3 Integration** for ultra-fast responses
+- 🌐 **Offline Experience Fallback**
+- 📱 Responsive Web UI
+
+---
+
+## 🧑‍💻 Team Roles
+
+| Name     | Role                             |
+|----------|----------------------------------|
+| Sana     | Team Lead · Voice & Agents Dev   |
+| Noor     | Content Architect · Personas     |
+| Saad     | 3D UI · Avatar Developer         |
+| Nimra    | AI Logic · Groq API Integration  |
+
+---
+
+## 📁 Folder Structure
+
+```bash
+/ai-knowledge-guider
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Avatar3D.js
+│   │   ├── VoiceChat.js
+│   │   └── ChatUI.js
+│   ├── agents/
+│   │   ├── scienceAgent.js
+│   │   ├── historyAgent.js
+│   │   └── fetchConfig.js
+│   ├── llama/
+│   │   └── llamaGroq.js
+│   └── App.js
+├── docs/
+│   ├── pitch-deck.md
+│   └── architecture.png
+├── sounds/
+│   ├── response.mp3
+│   └── fail.mp3
+🚀 Getting Started with React
+This project was bootstrapped with Create React App.
+
+Available Scripts
 In the project directory, you can run:
 
-### `npm start`
+npm install – Install all dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+npm start – Runs the app in development mode at http://localhost:3000
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm run build – Builds the app for production
 
-### `npm test`
+npm test – Launches the test runner
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Note: Avoid npm run eject unless customization is essential.
 
-### `npm run build`
+🛠️ Tech Stack
+React + Vite / CRA
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+JavaScript (ES6+)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Web Speech API / Whisper
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Three.js / Ready Player Me
 
-### `npm run eject`
+Groq API (LLaMA3 / Mixtral)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+GitHub Actions (optional CI/CD)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🌍 Deployment
+Coming Soon: [Netlify/Vercel Link]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📚 Learn More
+Groq Developer Docs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+React Documentation
 
-## Learn More
+Three.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Web Speech API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🤝 Contribution
+Open to contributions, ideas, and improvements.
+Feel free to fork, star ⭐, and submit pull requests!
 
-### Code Splitting
+📜 License
+This project is under MIT License — free to use, learn, and remix.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with ❤️ by Team Green at the RAISE Hackathon 2025.
