@@ -8,22 +8,26 @@ function App() {
   const [userInput, setUserInput] = useState("");
   const [response, setResponse] = useState("");
 
-  const handleAsk = () => {
-    const reply = routeToAgent(userInput);
+  // Handle text input
+  const handleAsk = async () => {
+    const reply = await routeToAgent(userInput);
     setResponse(reply);
     setUserInput("");
   };
 
-  const handleVoiceInput = (transcript) => {
+  // Handle voice input
+  const handleVoiceInput = async (transcript) => {
     setUserInput(transcript);
-    const reply = routeToAgent(transcript);
+    const reply = await routeToAgent(transcript);
     setResponse(reply);
   };
 
   return (
     <div className="App">
       <h1>🧠 AI Knowledge Guider</h1>
+
       <Avatar3D />
+
       <textarea
         placeholder="Ask me anything..."
         value={userInput}
@@ -32,8 +36,11 @@ function App() {
         cols={50}
       />
       <br />
+
       <button onClick={handleAsk}>Ask</button>
+
       <VoiceChat onTranscription={handleVoiceInput} />
+
       <div className="response-box">
         <strong>Agent:</strong> {response}
       </div>
