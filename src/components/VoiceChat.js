@@ -1,13 +1,18 @@
+// src/components/VoiceChat.js
 import { useState } from "react";
+import { routeToAgent } from "../agents/fetchConfig";
 
-function VoiceChat({ onTranscription }) {
+function VoiceChat() {
   const [isListening, setIsListening] = useState(false);
   const [error, setError] = useState("");
+  const [transcript, setTranscript] = useState("");
+  const [response, setResponse] = useState("");
 
   const handleMicClick = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
     if (!SpeechRecognition) {
-      setError("Your browser doesn't support speech recognition.");
+      setError("🚫 Your browser doesn't support speech recognition.");
       return;
     }
 
@@ -16,23 +21,47 @@ function VoiceChat({ onTranscription }) {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    recognition.onstart = () => setIsListening(true);
-    recognition.onerror = (e) => setError(`Error: ${e.error}`);
+    recognition.onstart = () => {
+      setIsListening(true);
+      setError("");
+    };
+
+    recognition.onerror = (e) => {
+      setError(`❌ Error: ${e.error}`);
+      setIsListening(false);
+    };
+
     recognition.onend = () => setIsListening(false);
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      onTranscription(transcript);
+
+    recognition.onresult = async (event) => {
+      const text = event.results[0][0].transcript;
+      setTranscript(text);
+      const reply = await routeToAgent(text);
+      setResponse(reply);
     };
 
     recognition.start();
   };
 
   return (
-    <div style={{ marginTop: "1rem" }}>
-      <button onClick={handleMicClick} style={{ padding: "10px", fontSize: "1rem" }}>
-        🎤 {isListening ? "Listening..." : "Speak"}
+    <div style={{ marginTop: "2rem" }}>
+      <h3>🎤 Ask with Your Voice</h3>
+      <button onClick={handleMicClick} disabled={isListening}>
+        {isListening ? "🎙️ Listening..." : "🎙️ Tap to Speak"}
       </button>
-      {error && <div style={{ color: "red" }}>{error}</div>}
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      {transcript && (
+        <p>
+          <strong>You said:</strong> {transcript}
+        </p>
+      )}
+      {response && (
+        <div className="response-box">
+          <strong>Agent:</strong> {response}
+        </div>
+      )}
     </div>
   );
 }
